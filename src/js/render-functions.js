@@ -8,15 +8,23 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 export default {renderImg, onFetchError}
-
+const loader = document.querySelector('.loader');
 
 const imageContainer = document.querySelector(".img-container-list");
 
 function renderImg(images){
+    loader.style.display = 'none';
+    imageContainer.innerHTML = '';
 
     if(!images.hits.length){
         iziToast.show({
+            position: 'topRight',
             message: 'Sorry, there are no images matching your search query. Please try again!',
+            messageColor: '#FAFAFB',
+            messageSize: '16px',
+            messageLineHeight: ' 24px',
+            backgroundColor: '#EF4040',
+
         });
         return;
     }
@@ -61,9 +69,7 @@ function createMarkup(arr){
     .join("");
 }
 
-function onFetchError(){
+function onFetchError(err){
     imageContainer.innerHTML = "";
-    iziToast.error({
-        message: 'Sorry, there are no images matching your search query. Please try again!',
-        });
+    console,log(err);
 }
