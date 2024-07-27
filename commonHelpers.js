@@ -1,6 +1,6 @@
-import{i as o,S as d}from"./assets/vendor-8c59ed88.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))c(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const a of r.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&c(a)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function c(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();const h="https://pixabay.com/api/";function g(t){const i=new URLSearchParams({key:"45131353-6378824e083214db07911a1d4",q:`${t}`,image_type:"photo",orientation:"horizontal",safesearch:"true"});return fetch(`${h}?${i}`).then(s=>{if(!s.ok)throw new Error(s.status);return s.json()})}const n={renderImg:f,onFetchError:y},m=document.querySelector(".img-container-list");function f(t){if(!t.hits.length){o.show({message:"Sorry, there are no images matching your search query. Please try again!"});return}m.innerHTML=p(t.hits),new d(".wrap-img-item a",{captions:!0,captionsData:"alt",captionDelay:250}).refresh()}function p(t){return t.map(({webformatURL:i,largeImageURL:s,tags:c,likes:e,views:r,comments:a,downloads:u})=>`<li class="img-container-item">
+import{i as u,S as g}from"./assets/vendor-8c59ed88.js";(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=s(e);fetch(e.href,t)}})();const h="https://pixabay.com/api/";function p(r){const i=new URLSearchParams({key:"45131353-6378824e083214db07911a1d4",q:`${r}`,image_type:"photo",orientation:"horizontal",safesearch:"true"});return fetch(`${h}?${i}`).then(s=>{if(!s.ok)throw new Error(s.status);return s.json()})}const a={renderImg:y,onFetchError:w},f=document.querySelector(".loader"),c=document.querySelector(".img-container-list");function y(r){if(f.style.display="none",c.innerHTML="",!r.hits.length){u.show({position:"topRight",message:"Sorry, there are no images matching your search query. Please try again!",messageColor:"#FAFAFB",messageSize:"16px",messageLineHeight:" 24px",backgroundColor:"#EF4040"});return}c.innerHTML=L(r.hits),new g(".wrap-img-item a",{captions:!0,captionsData:"alt",captionDelay:250}).refresh()}function L(r){return r.map(({webformatURL:i,largeImageURL:s,tags:n,likes:e,views:t,comments:o,downloads:d})=>`<li class="img-container-item">
         <div class="wrap-img-item">
-            <a href="${s}"><img class="img-item" src="${i}" alt="${c}"/></a>
+            <a href="${s}"><img class="img-item" src="${i}" alt="${n}"/></a>
         </div>
         <div class="wrap-img-discr">
             <ul class="img-discr-list">
@@ -10,16 +10,16 @@ import{i as o,S as d}from"./assets/vendor-8c59ed88.js";(function(){const i=docum
                 </li>
                 <li class="img-discr-item">
                     <h2 class="img-discr-item-header">Views</h2>
-                    <p class="img-discr-item-text">${r}</p>
+                    <p class="img-discr-item-text">${t}</p>
                 </li>
                 <li class="img-discr-item">
                     <h2 class="img-discr-item-header">Comments</h2>
-                    <p class="img-discr-item-text">${a}</p>
+                    <p class="img-discr-item-text">${o}</p>
                 </li><li class="img-discr-item">
                     <h2 class="img-discr-item-header">Downloads</h2>
-                    <p class="img-discr-item-text">${u}</p>
+                    <p class="img-discr-item-text">${d}</p>
                 </li>
             </ul>
         </div>
-    </li>`).join("")}function y(){m.innerHTML="",o.error({message:"Sorry, there are no images matching your search query. Please try again!"})}const l=document.querySelector(".search-img-form");l.addEventListener("submit",L);function L(t){t.preventDefault();const i=t.currentTarget.elements.name.value.trim().toLowerCase();g(i).then(n.renderImg).catch(n.onFetchError).finally(()=>l.reset())}
+    </li>`).join("")}function w(r){c.innerHTML="",log(r)}const l=document.querySelector(".search-img-form"),m=document.querySelector(".loader");l.addEventListener("submit",S);m.style.display="none";function S(r){r.preventDefault(),m.style.display="block";const i=r.currentTarget.elements.name.value.trim().toLowerCase();p(i).then(a.renderImg).catch(a.onFetchError).finally(()=>l.reset())}
 //# sourceMappingURL=commonHelpers.js.map
