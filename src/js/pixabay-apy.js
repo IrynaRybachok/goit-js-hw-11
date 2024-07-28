@@ -4,6 +4,7 @@ export default searchImegesByQuery;
 const URL = 'https://pixabay.com/api/';
 
 function searchImegesByQuery(query){
+    
     const params = new URLSearchParams({
         "key": "45131353-6378824e083214db07911a1d4",
         "q": `${query}`,

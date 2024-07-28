@@ -8,16 +8,21 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 export default {renderImg, onFetchError}
+const imageContainer = document.querySelector(".img-container-list");
 const loader = document.querySelector('.loader');
 
-const imageContainer = document.querySelector(".img-container-list");
 
 function renderImg(images){
     loader.style.display = 'none';
-    imageContainer.innerHTML = '';
+    
+
 
     if(!images.hits.length){
         iziToast.show({
+            title: 'Error',
+            titleColor: '#FAFAFB',
+            titleSize: '16px',
+            titleLineHeight: '24px',
             position: 'topRight',
             maxWidth: '432px',
             message: 'Sorry, there are no images matching your search query. Please try again!',
@@ -71,6 +76,7 @@ function createMarkup(arr){
 }
 
 function onFetchError(err){
-    imageContainer.innerHTML = "";
-    console,log(err);
+    imageContainer.innerHTML = '';
+    loader.style.display = 'none';
+    console.log(err);
 }
