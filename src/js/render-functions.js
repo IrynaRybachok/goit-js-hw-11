@@ -14,8 +14,6 @@ const loader = document.querySelector('.loader');
 
 function renderImg(images){
     loader.style.display = 'none';
-    
-
 
     if(!images.hits.length){
         iziToast.show({
@@ -30,7 +28,6 @@ function renderImg(images){
             messageSize: '16px',
             messageLineHeight: ' 24px',
             backgroundColor: '#EF4040',
-
         });
         return;
     }
