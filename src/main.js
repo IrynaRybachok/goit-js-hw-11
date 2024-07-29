@@ -38,6 +38,7 @@ function heandlyClickBtnSearch(event){
             backgroundColor: '#FFA000',
         });
         loader.style.display = 'none';
+        form.reset();
         return;
     }
 
