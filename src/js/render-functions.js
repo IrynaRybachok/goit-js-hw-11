@@ -75,5 +75,34 @@ function createMarkup(arr){
 function onFetchError(err){
     imageContainer.innerHTML = '';
     loader.style.display = 'none';
-    console.log(err);
+    console.log(err)
+    if (err.name === 'TypeError' && err.message === 'Failed to fetch') {
+        iziToast.show({
+            title: 'Error',
+            titleColor: '#FAFAFB',
+            titleSize: '16px',
+            titleLineHeight: '24px',
+            position: 'topRight',
+            maxWidth: '432px',
+            message: 'No internet connection',
+            messageColor: '#FAFAFB',
+            messageSize: '16px',
+            messageLineHeight: ' 24px',
+            backgroundColor: '#EF4040',
+        });
+    } else {
+        iziToast.show({
+            title: 'Error',
+            titleColor: '#FAFAFB',
+            titleSize: '16px',
+            titleLineHeight: '24px',
+            position: 'topRight',
+            maxWidth: '432px',
+            message: `An error occurred: ${err.message}`,
+            messageColor: '#FAFAFB',
+            messageSize: '16px',
+            messageLineHeight: ' 24px',
+            backgroundColor: '#EF4040',
+        });
+    }
 }
